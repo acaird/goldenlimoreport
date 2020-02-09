@@ -1,0 +1,36 @@
+#+OPTIONS: ':t *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK")
+#+OPTIONS: date:t e:t email:nil f:t inline:t num:t p:nil pri:nil
+#+OPTIONS: prop:nil stat:t tags:t tasks:t tex:t timestamp:t title:t
+#+OPTIONS: toc:t todo:t |:t
+#+TITLE: GridViewExport parser for GoldenLimo XLS files
+#+DATE: <2020-02-09 Sun>
+#+AUTHOR: Andy Caird
+#+EMAIL: acaird@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 26.3 (Org mode 9.1.9)
+
+* Introduction
+
+  Golden Limousine is a car service in south-east lower Michigan that
+  had convenient online scheduling at
+  https://goldenlimo.liverycoach.com/.
+
+  They support an option to export the list of trips you've booked as
+  a Microsoft Excel file.  In fact, this is an HTML file that is
+  readable by MS Excel, and it includes a lot of information that
+  isn't important for your travel.
+
+  This tiny Python script reads that file and makes a nice, text-based
+  table as a summary.
+
+* Example
+
+  The output can look like:
+
+  | Pickup Date         | Pickup Location                                                                            | Dropoff Location                                                                            | Passenger List          | Trip ID |
+  |---------------------+--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+-------------------------+---------|
+  | 02/15/2022 07:00 AM | Smith Residence, 1234 MLK Blvd, Town, ST 12345                                             | DTW Detroit Metro John D Dingell Dr Detroit MI 48242 *** FLT: DTW  - DL # 134  From/To: AMS | John Smith  Susan Smith | 1111111 |
+  | 02/20/2022 06:28 AM | DTW Detroit Metro John D Dingell Dr Detroit MI 48242 *** FLT: DTW  - DL # 139 From/To: AMS | Smith Residence 1234 MLK Blvd City, ST 12345                                                | John Smith  Susan Smith | 2222222 |
